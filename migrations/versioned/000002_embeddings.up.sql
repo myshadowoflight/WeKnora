@@ -8,6 +8,10 @@ BEGIN
         RAISE NOTICE 'Skipping migration embeddings (app.skip_embedding=true)';
         RETURN;
     END IF;
+    
+    -- Force skip due to missing extensions
+    RAISE NOTICE 'Skipping migration embeddings (forced skip due to missing extensions)';
+    RETURN;
 
     -- If we reach here, proceed with migration
     RAISE NOTICE '[Conditional Migration: embeddings] Creating embeddings table...';
